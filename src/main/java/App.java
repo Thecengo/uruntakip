@@ -54,26 +54,25 @@ public class App {
                             int yeniUrunAdedi;
                             int musterininSatınAlacagiMiktar = sayiDegeriIste(StringYazici.musterininKacAdetIstedigiYazisi, scanner);
 
-                            boolean kodBulunamadi= false;
 
-                            urunKoduVarMı(urunKoduIste);
                             boolean urunKoduVar = urunKoduVarMı(urunKoduIste);
-                            for (Stok stok : stokList) {
+
                                 if (urunKoduVar) {
-                                    if (stok.getUrunAdedi() < musterininSatınAlacagiMiktar) {
+                                    if (stokList.get(satisIndisi).getUrunAdedi() < musterininSatınAlacagiMiktar) {
                                         System.out.println(StringYazici.stogumuzdaIstediginizMiktarBulunmamaktadirYazisi);
                                     } else {
                                         scanner.nextLine();
                                         String musteriAdi = stringDegerIste(StringYazici.musteriAdiGirinizYazisi, scanner);
                                         Musteri musteri = new Musteri(musteriAdi);
-                                        satıs = new Satıs(stok, musteri,musterininSatınAlacagiMiktar);
+                                        satıs = new Satıs(stokList.get(satisIndisi), musteri,musterininSatınAlacagiMiktar);
                                         satısList.add(satıs);
-                                        yeniUrunAdedi = stok.getUrunAdedi() - musterininSatınAlacagiMiktar;
-                                        stok.setUrunAdedi(yeniUrunAdedi);
-                                        System.out.println(stok.getUrun().getUrunAdi() +
+                                        yeniUrunAdedi = stokList.get(satisIndisi).getUrunAdedi() - musterininSatınAlacagiMiktar;
+                                        stokList.get(satisIndisi).setUrunAdedi(yeniUrunAdedi);
+                                        System.out.println(stokList.get(satisIndisi).getUrun().getUrunAdi()+
                                                 " Satışı basarı ile gercekleştirilmiştir."
                                                   +musteri.getMusteriAdi());
                                         kodYanlıs = false;
+                                        satisIndisi = 0;
 
                                     }
                                 }
@@ -81,7 +80,7 @@ public class App {
                                     scanner.nextLine();
                                     System.out.println("Hatalı ürün kodu girdiniz. Lütfen tekrar deneyiniz");
                                 }
-                            }
+
 
                         }
                     }
@@ -116,11 +115,16 @@ public class App {
 
     private static void tumSatıslarıGoster(){
 
+        System.out.println(StringYazici.duzCizgiYazisi);
+        System.out.println(StringYazici.satısiGosterUstYazisi);
+        System.out.println(StringYazici.duzCizgiYazisi);
+
         for(Satıs satıs : satısList){
-            System.out.println(satıs.getMusteri().getMusteriAdi());
-            System.out.println(satıs.getSatısMiktari());
-            System.out.println(satıs.getStok().getUrun().getUrunAdi());
-            System.out.println(satıs.getStok().getPersonel());
+            System.out.print( satıs.getMusteri().getMusteriAdi());
+            System.out.print(girilenAdetKadarTabVer(3).toString() + satıs.getSatısMiktari());
+            System.out.print(girilenAdetKadarTabVer(3).toString() + satıs.getStok().getUrun().getUrunAdi());
+            System.out.print(girilenAdetKadarTabVer(3).toString() + satıs.getStok().getPersonel());
+            System.out.print(StringYazici.altSatirYazicisi + StringYazici.duzCizgiYazisi + StringYazici.altSatirYazicisi);
         }
     }
 

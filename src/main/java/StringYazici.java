@@ -36,5 +36,6 @@ public class StringYazici {
     public final static String urunKoduGirinizYazisi = "Lütfen urunKoduGiriniz";
     public final static String stogumuzdaIstediginizMiktarBulunmamaktadirYazisi = "Stogumuzda istediğiniz miktar bulunmamaktadır";
     public final static String musteriAdiGirinizYazisi = "Musteri adi giriniz";
+    public final static String satısiGosterUstYazisi = "Musteri \t\t Urun adedi \t \t Urun adı \t\t Personel adi";
 
 }
