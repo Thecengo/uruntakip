@@ -1,3 +1,4 @@
+import domain.Personel;
 import urunler.Urun;
 
 public class Stok {

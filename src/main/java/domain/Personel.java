@@ -1,3 +1,5 @@
+package domain;
+
 import urunler.Urun;
 
 import java.util.ArrayList;

@@ -1,3 +1,5 @@
+package urunler;
+
 import urunler.Urun;
 
 public class Meyve extends Urun {

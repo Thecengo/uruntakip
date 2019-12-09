@@ -1,3 +1,5 @@
+import domain.Musteri;
+
 public class Satıs {
 
     private Stok stok;

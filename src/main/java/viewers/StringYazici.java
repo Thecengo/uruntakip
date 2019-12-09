@@ -1,3 +1,5 @@
+package viewers;
+
 public class StringYazici {
     //Genel menu içeriği strinleri
     public final static String genelMenuSecimYazisi = "Lütfen yapmak istediğiniz işlemi seçiniz";
@@ -5,7 +7,7 @@ public class StringYazici {
     public final static String genelMenuTumUrunleriGosterYazisi = " 1 - Stoktaki tüm ürünleri ve kaç adet olduklarını göster";
     public final static String genelMenuSatisYapGosterYazisi= " 2 - Musteriye satıs yap";
     public final static String genelMenuTumSatisleriGosterYazisi= " 3 - Tüm satisları goster";
-    public final static String genelMenuCikisYapGosterYazisi = " 4 - Çıkış yapmak için  3'ye basınız";
+    public final static String genelMenuCikisYapGosterYazisi = " 4 - Çıkış yapmak için  4'e basınız";
 
 
     public final static String tumUrunleriGosterUstYazisi = "Personel adi \t\t Urun adi \t \t Urun adedi \t\t Urun Kodu";
@@ -20,7 +22,7 @@ public class StringYazici {
     public final static String meyveYazisi = "1 - Meyve";
     public final static String urunEklemeMenusutumUrunleriGosterYazisi = "2 - Tüm ürünleri göster";
     public final static String goruntulemekIstediginizUrunAdinaGoreAramaYazisi = "3 - Goruntulemek istediginiz urun adina göre miktar göster";
-    public final static String cikisYazisi = "Çıkış yapmak için lütfen 4'e basınız";
+    public final static String cikisYazisi = "Ust menuye donemek için lütfen 4'e basınız";
 
     public final static String goruntulemekIstediginizUrunAdiniGirinizYazisi = "Goruntulemek istediginiz urun adina göre miktar göster";
     public final static String listeBosYazisi =" Henüz bir ürün eklemediniz. Lütfen ürün ekleyiniz";
@@ -35,7 +37,8 @@ public class StringYazici {
     public final static String satilacakUrunYokYazisi = "Satılacak urun yok lütfen bir ürün giriniz..";
     public final static String urunKoduGirinizYazisi = "Lütfen urunKoduGiriniz";
     public final static String stogumuzdaIstediginizMiktarBulunmamaktadirYazisi = "Stogumuzda istediğiniz miktar bulunmamaktadır";
-    public final static String musteriAdiGirinizYazisi = "Musteri adi giriniz";
-    public final static String satısiGosterUstYazisi = "Musteri \t\t Urun adedi \t \t Urun adı \t\t Personel adi";
+    public final static String musteriAdiGirinizYazisi = "domain.Musteri adi giriniz";
+    public final static String satısiGosterUstYazisi = "domain.Musteri \t\t Urun adedi \t \t Urun adı \t\t domain.Personel adi";
+    public final static String henüzSatisYapilmamistirYazisi = "Henüz satış yapılmamıştır";
 
 }

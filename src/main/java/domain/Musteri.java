@@ -1,3 +1,5 @@
+package domain;
+
 public class Musteri {
     private String musteriAdi;
 
