@@ -17,10 +17,9 @@ public class Personel implements Serializable {
     }
 
     private String personelAdi;
-    List<Urun> urunList;
+
 
     public Personel(String personelAdi){
-        urunList = new ArrayList<Urun>();
         this.personelAdi = personelAdi;
     }
 
