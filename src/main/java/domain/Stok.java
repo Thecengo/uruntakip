@@ -1,7 +1,11 @@
+package domain;
+
 import domain.Personel;
 import urunler.Urun;
 
-public class Stok {
+import java.io.Serializable;
+
+public class Stok implements Serializable {
 
     private Urun urun;
     private Personel personel;
@@ -45,5 +49,13 @@ public class Stok {
         this.urunAdedi = urunAdedi;
     }
 
-
+    @Override
+    public String toString() {
+        return "domain.Stok{" +
+                "urun=" + urun.getUrunAdi() +
+                ", personel=" + personel.getPersonelAdi() +
+                ", urunAdedi=" + urunAdedi +
+                ", urunKodu='" + urunKodu + '\'' +
+                '}';
+    }
 }

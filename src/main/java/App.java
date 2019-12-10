@@ -1,5 +1,7 @@
-import domain.Musteri;
 import domain.Personel;
+import domain.Satıs;
+import domain.Stok;
+import filetransactions.MyFileWriter;
 import urunler.Meyve;
 import urunler.Sebze;
 import urunler.Urun;
@@ -23,6 +25,11 @@ public class App {
 
         Goruntuleyici.genelMenuIcerikGoster(scanner);
 
+        for (Stok stok: stokList){
+            System.out.println(stok);
+        }
+
+
     }
 
     public static boolean urunKoduVarMı(String urunKoduIste) {
@@ -40,8 +47,8 @@ public class App {
 
     private static void arananUruneGoreMiktarGoster(Scanner scanner) {
         String aranacakUrun = Input.stringDegerIste(StringYazici.goruntulemekIstediginizUrunAdiniGirinizYazisi, scanner);
-
         String urunAdi = null;
+
         int toplam = 0;
 
         for (Stok stok : stokList) {
@@ -59,7 +66,7 @@ public class App {
 
         while (devamEdilsinMi) {
 
-            Menu.urunEklemeMenusuIcerikYazdir();
+            MenuOlusturucu.urunEklemeMenusuIcerikYazdir();
 
             int secimRakami = scanner.nextInt();
 
@@ -75,16 +82,19 @@ public class App {
                     if (stokList.isEmpty())
                         System.out.println(StringYazici.listeBosYazisi);
                     else
-                        Goruntuleyici.tumUrunleriGoster();
+                        Goruntuleyici.tumUrunleriGoster(App.stokList);
                     break;
                 case 3:
-                    Goruntuleyici.tumUrunleriGoster();
+                    Goruntuleyici.tumUrunleriGoster(App.stokList);
                     arananUruneGoreMiktarGoster(scanner);
                     break;
                 case 4:
                     devamEdilsinMi = false;
                     break;
-
+                case 5:
+                    MyFileWriter<Stok> myFileWriter = new MyFileWriter<Stok>();
+                    myFileWriter.dosyayaYaz(StringYazici.stokFilePath, stokList);
+                    break;
             }
 
         }
@@ -113,16 +123,10 @@ public class App {
         personel = new Personel(personelAdi);
 
         stok = new Stok(urun, personel, urunAdedi);
+
         stokList.add(stok);
 
     }
-
-
-
-
-
-
-
 
 
 }

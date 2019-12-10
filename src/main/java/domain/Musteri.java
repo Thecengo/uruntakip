@@ -1,6 +1,8 @@
 package domain;
 
-public class Musteri {
+import java.io.Serializable;
+
+public class Musteri implements Serializable {
     private String musteriAdi;
 
     public Musteri(String musteriAdi) {

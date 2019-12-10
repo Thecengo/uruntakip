@@ -1,4 +1,7 @@
 import domain.Musteri;
+import domain.Satıs;
+import domain.Stok;
+import filetransactions.MyFileWriter;
 import viewers.Input;
 import viewers.StringYazici;
 
@@ -10,18 +13,19 @@ public class Satici {
         Satıs satıs;
         boolean kodYanlıs = true;
 
-        boolean stokVarMı;
+        boolean stokYok;
 
         scanner.nextLine();
         while (kodYanlıs) {
             System.out.println(StringYazici.genelMenuSatisYapGosterYazisi);
-            stokVarMı = App.stokList.isEmpty();
-            if (stokVarMı){
+            stokYok = App.stokList.isEmpty();
+
+            if (stokYok){
                 System.out.println(StringYazici.satilacakUrunYokYazisi);
                 App.urunVePersonelEkle(scanner);
             }
             else {
-                Goruntuleyici.tumUrunleriGoster();
+                Goruntuleyici.tumUrunleriGoster(App.stokList);
 
                 String urunKoduIste = Input.stringDegerIste(StringYazici.urunKoduGirinizYazisi, scanner);
 
@@ -47,10 +51,18 @@ public class Satici {
                             satıs = new Satıs(stok, musteri,musterininSatınAlacagiMiktar);
                             App.satısList.add(satıs);
 
+                            //File write islemi buraya yazılacak
+
+                            MyFileWriter<Satıs> myFileWriter = new MyFileWriter<Satıs>();
+                            myFileWriter.dosyayaYaz(StringYazici.satisFilePath, App.satısList);
+
                             final int urunAdedi = App.stokList.get(App.satisIndisi).getUrunAdedi();
                             yeniUrunAdedi = urunAdedi - musterininSatınAlacagiMiktar;
 
                             App.stokList.get(App.satisIndisi).setUrunAdedi(yeniUrunAdedi);
+
+                            MyFileWriter<Stok> myFileWriterUpdateStok = new MyFileWriter<Stok>();
+                            myFileWriterUpdateStok.dosyayaYaz(StringYazici.stokFilePath, App.stokList);
 
                             kodYanlıs = false;
                             App.satisIndisi = 0;

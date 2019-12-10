@@ -1,6 +1,8 @@
 package urunler;
 
-public abstract class Urun {
+import java.io.Serializable;
+
+public abstract class Urun implements Serializable {
 
     private static int urunId;
     private String urunAdi;

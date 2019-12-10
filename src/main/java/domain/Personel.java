@@ -2,10 +2,11 @@ package domain;
 
 import urunler.Urun;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Personel {
+public class Personel implements Serializable {
 
     public String getPersonelAdi() {
         return personelAdi;

@@ -1,6 +1,11 @@
-import domain.Musteri;
+package domain;
 
-public class Satıs {
+import domain.Musteri;
+import domain.Stok;
+
+import java.io.Serializable;
+
+public class Satıs implements Serializable {
 
     private Stok stok;
     private Musteri musteri;
